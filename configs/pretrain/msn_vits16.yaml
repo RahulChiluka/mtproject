@@ -38,7 +38,7 @@ meta:
   use_pred_head: false
 optimization:
   clip_grad: 3.0
-  epochs: 800
+  epochs: 200
   final_lr: 1.0e-06
   final_weight_decay: 0.4
   lr: 0.001
