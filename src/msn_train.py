@@ -28,6 +28,8 @@ import torch
 import torch.multiprocessing as mp
 
 import src.deit as deit
+import src.swin as swin
+
 from src.utils import (
     AllReduceSum,
     trunc_normal_,
@@ -484,9 +486,9 @@ def init_model(
     output_dim=128,
     drop_path_rate=0.1,
 ):
-    encoder = deit.__dict__[model_name](drop_path_rate=drop_path_rate)
-    emb_dim = 192 if 'tiny' in model_name else 384 if 'small' in model_name else 768 if 'base' in model_name else 1024 if 'large' in model_name else 1280
-
+    encoder = swin.__dict__[model_name](drop_path_rate=drop_path_rate)
+    # emb_dim = 192 if 'tiny' in model_name else 384 if 'small' in model_name else 768 if 'base' in model_name else 1024 if 'large' in model_name else 1280
+    emb_dim = 96 if 'small' in model_name else 128 if 'base' in model_name else 192
     # -- projection head
     encoder.fc = None
     fc = OrderedDict([])
