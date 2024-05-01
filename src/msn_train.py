@@ -335,17 +335,17 @@ def main(args):
                 # -- If use_pred_head=False, then encoder.pred (prediction
                 #    head) is None, and _forward_head just returns the
                 #    identity, z=h
-                h, z = encoder(imgs[1:])
+                x = encoder(imgs[1:])
                 with torch.no_grad():
-                    h, _ = target_encoder(imgs[0])
+                    x = target_encoder(imgs[0])
 
                 # Step 1. convert representations to fp32
-                h, z = h.float(), z.float()
+                x = x.float()
 
                 # Step 2. determine anchor views/supports and their
                 #         corresponding target views/supports
                 # --
-                anchor_views, target_views = z, h.detach()
+                anchor_views, target_views = x, x.detach()
                 T = next(sharpen_scheduler)
 
                 # Step 3. compute msn loss with me-max regularization
