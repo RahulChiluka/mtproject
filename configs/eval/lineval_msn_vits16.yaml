@@ -18,4 +18,4 @@ optimization:
 logging:
   folder: mtproject/checkpoint/msn_logs/
   write_tag: msn-lineval-experiment-1
-  pretrain_path: /kaggle/input/epoch200msn/pytorch/check/1/
+  pretrain_path: /kaggle/input/epoch200msn/pytorch/zip200ep/1/
