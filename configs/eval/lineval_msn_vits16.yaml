@@ -6,9 +6,9 @@ meta:
   copy_data: false
   device: cuda:0
 data:
-  root_path: /datasets01/
-  image_folder: imagenet_full_size/061417/
-  num_classes: 1000
+  root_path: mtproject/datasets01/
+  image_folder: Alzheimers/
+  num_classes: 4
 optimization:
   weight_decay: 0.0
   lr: 6.4
@@ -16,6 +16,6 @@ optimization:
   num_blocks: 1
   normalize: true
 logging:
-  folder: /checkpoint/msn_logs/
+  folder: mtproject/checkpoint/msn_logs/
   write_tag: msn-lineval-experiment-1
-  pretrain_path: /path_to_pretrained_encoder/
+  pretrain_path: mtproject/pretrained/
