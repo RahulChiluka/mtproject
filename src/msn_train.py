@@ -335,7 +335,7 @@ def main(args):
                 # -- If use_pred_head=False, then encoder.pred (prediction
                 #    head) is None, and _forward_head just returns the
                 #    identity, z=h
-                h, z = encoder(imgs[1:], return_before_head=True, patch_drop=patch_drop)
+                h, z = encoder(imgs[1:], return_before_head=False, patch_drop=patch_drop)
                 with torch.no_grad():
                     h, _ = target_encoder(imgs[0], return_before_head=True)
 
