@@ -108,9 +108,10 @@ def main(
 
     # -- Define file names used to save computed embeddings (for efficient
     # -- reuse if running the script more than once)
+    path_to_add = 'mtproject/checkpoint/'
     subset_tag = '-'.join(subset_path.split('/')).split('.txt')[0] if subset_path is not None else 'imagenet_subses1-100percent'
-    train_embs_path = os.path.join(pretrained, f'train-features-{subset_tag}-{fname}')
-    test_embs_path = os.path.join(pretrained, f'val-features-{fname}')
+    train_embs_path = os.path.join(path_to_add, f'train-features-{subset_tag}-{fname}')
+    test_embs_path = os.path.join(path_to_add, f'val-features-{fname}')
     logger.info(train_embs_path)
     logger.info(test_embs_path)
 
